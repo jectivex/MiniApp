@@ -15,7 +15,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "MiniApp", dependencies: ["MiniAppManifest", "MiniAppPackaging", "MiniAppLifecycle", "MiniAppAddressing"]),
-        .testTarget(name: "MiniAppTests", dependencies: ["MiniApp"]),
+        .testTarget(name: "MiniAppTests", dependencies: ["MiniApp"], resources: [.copy("miniapp-tests")]),
         .target(name: "MiniAppManifest", dependencies: []),
         .testTarget(name: "MiniAppManifestTests", dependencies: ["MiniAppManifest"]),
         .target(name: "MiniAppPackaging", dependencies: []),
