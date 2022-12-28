@@ -14,7 +14,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        .target(name: "MiniApp", dependencies: ["MiniAppManifest", "MiniAppPackaging", "MiniAppLifecycle", "MiniAppAddressing"]),
+        .target(name: "MiniApp", dependencies: ["MiniAppManifest", "MiniAppPackaging", "MiniAppLifecycle", "MiniAppAddressing"], resources: [.process("Resources")]),
         .testTarget(name: "MiniAppTests", dependencies: ["MiniApp"], resources: [.copy("miniapp-tests")]),
         .target(name: "MiniAppManifest", dependencies: []),
         .testTarget(name: "MiniAppManifestTests", dependencies: ["MiniAppManifest"]),
