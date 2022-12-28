@@ -1,0 +1,3 @@
+[submodule "Tests/MiniAppTests/miniapp-tests"]
+	path = Tests/MiniAppTests/miniapp-tests
+	url = https://github.com/w3c/miniapp-tests.git
