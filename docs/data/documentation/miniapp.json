@@ -1,0 +1,60 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/MiniApp\/documentation\/MiniApp"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "MiniApp",
+    "modules" : [
+      {
+        "name" : "MiniApp"
+      }
+    ],
+    "role" : "collection",
+    "roleHeading" : "Framework",
+    "symbolKind" : "module",
+    "title" : "MiniApp"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/miniapp"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://MiniApp/documentation/MiniApp": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/MiniApp\/documentation\/MiniApp",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "MiniApp",
+  "type" : "topic",
+  "url" : "\/documentation\/miniapp"
+}
+}
+}
