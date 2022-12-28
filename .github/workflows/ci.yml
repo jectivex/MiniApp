@@ -32,7 +32,9 @@ jobs:
   ios:
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with: 
+          submodules: true
       - name: Test (Debug)
         run: xcodebuild clean test -configuration Debug -scheme "MiniApp-Package" -sdk "iphonesimulator" -destination "platform=iOS Simulator,name=iPhone 14 Pro" 
       #- name: Test (Release)
@@ -41,7 +43,9 @@ jobs:
   tvos:
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with: 
+          submodules: true
       - name: Test (Debug)
         run: xcodebuild clean test -configuration Debug -scheme "MiniApp-Package" -sdk "appletvsimulator" -destination "platform=tvOS Simulator,name=Apple TV" 
       #- name: Test (Release)
@@ -50,7 +54,9 @@ jobs:
   macos:
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with: 
+          submodules: true
       - name: Test (Debug)
         run: swift test --configuration debug
       #- name: Test (Release)
@@ -60,7 +66,9 @@ jobs:
     runs-on: macos-12 # needed to be able to document SwiftUI
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with: 
+          submodules: true
       - name: Build documentation
         run: |
           swift -version
