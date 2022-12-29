@@ -42,16 +42,6 @@ final class MiniAppTests: XCTestCase {
         print("  type:", ld.type)
 
         let src = try url.directory(named: "src")
-
-//        switch ld.coverage {
-//        case .packaging:
-//            try checkMAPackaging(url)
-//        case .lifecycle:
-//            try checkMALifecycle(url)
-//        case .manifest:
-//            try checkMAManifest(url)
-//        }
-
         let common = try src.directory(named: "common")
         let commonFiles = try common.directoryContents(deep: false)
         print("commonFiles:", commonFiles.map(\.lastPathComponent))
@@ -61,14 +51,16 @@ final class MiniAppTests: XCTestCase {
         print("pagesFiles:", pagesFiles.map(\.lastPathComponent))
 
         let manifest = try MiniAppManifest.decode(from: Data(contentsOf: src.file(named: "manifest.json")))
-        //XCTAssertEqual("manifest", manifest)
-
-        print("  manifest:", manifest)
+        XCTAssertNotEqual("", manifest.name)
+        XCTAssertEqual("org.example.miniapp", manifest.id)
+        XCTAssertEqual(1, manifest.pages.count)
+        XCTAssertEqual(1, manifest.icons?.count)
+        //XCTAssertNotNil(manifest.short_name)
 
         // app.js contains the basic service logic of the MiniApp and includes the essential configuration and control of the MiniApp lifecycle, including the management of events for launching, showing, and hiding the MiniApp.
         let appJS = try src.file(named: "app.js")
         let _ = try Data(contentsOf: appJS)
-    }
+}
 }
 
 extension URL {
@@ -166,7 +158,6 @@ struct LD : Decodable {
         case description = "dc:description"
         case terms = "dcterms:isReferencedBy"
         case modified = "dcterms:modified"
-
     }
 
     enum Coverage : String, Decodable {
