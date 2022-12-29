@@ -14,7 +14,7 @@ Browse the [API Documentation].
 [Swift Package Manager]: https://swift.org/package-manager
 [ProjectLink]: https://github.com/jectivex/MiniApp
 [ActionsLink]: https://github.com/jectivex/MiniApp/actions
-[API Documentation]: https://www.jective.org/MiniApp/documentation/miniapp/
+[API Documentation]: https://www.jective.org/MiniAppManifest/documentation/miniappmanifest/
 
 [Swift]: https://swift.org/
 [OpenCombine]: https://github.com/OpenCombine/OpenCombine

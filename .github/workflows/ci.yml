@@ -85,6 +85,34 @@ jobs:
             --hosting-base-path MiniApp \
             --output-path docs
 
+          swift package --allow-writing-to-directory docs \
+            generate-documentation --target MiniAppManifest \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path MiniAppManifest \
+            --output-path docs
+
+          swift package --allow-writing-to-directory docs \
+            generate-documentation --target MiniPackaging \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path MiniPackaging \
+            --output-path docs
+
+          swift package --allow-writing-to-directory docs \
+            generate-documentation --target MiniLifecycle \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path MiniLifecycle \
+            --output-path docs
+
+          swift package --allow-writing-to-directory docs \
+            generate-documentation --target MiniAddressing \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path MiniAddressing \
+            --output-path docs
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
