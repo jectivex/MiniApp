@@ -2,8 +2,8 @@
   "interfaceLanguages" : {
     "swift" : [
       {
-        "path" : "\/documentation\/miniapp",
-        "title" : "MiniApp",
+        "path" : "\/documentation\/miniappaddressing",
+        "title" : "MiniAppAddressing",
         "type" : "module"
       }
     ]

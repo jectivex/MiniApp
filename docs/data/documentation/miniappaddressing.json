@@ -8,20 +8,20 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/MiniApp\/documentation\/MiniApp"
+    "url" : "doc:\/\/MiniAppAddressing\/documentation\/MiniAppAddressing"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "MiniApp",
+    "externalID" : "MiniAppAddressing",
     "modules" : [
       {
-        "name" : "MiniApp"
+        "name" : "MiniAppAddressing"
       }
     ],
     "role" : "collection",
     "roleHeading" : "Framework",
     "symbolKind" : "module",
-    "title" : "MiniApp"
+    "title" : "MiniAppAddressing"
   },
   "schemaVersion" : {
     "major" : 0,
@@ -34,7 +34,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/miniapp"
+        "\/documentation\/miniappaddressing"
       ],
       "traits" : [
         {
@@ -45,16 +45,16 @@
   ]
 , 
 "references": {
-"doc://MiniApp/documentation/MiniApp": {
+"doc://MiniAppAddressing/documentation/MiniAppAddressing": {
   "abstract" : [
 
   ],
-  "identifier" : "doc:\/\/MiniApp\/documentation\/MiniApp",
+  "identifier" : "doc:\/\/MiniAppAddressing\/documentation\/MiniAppAddressing",
   "kind" : "symbol",
   "role" : "collection",
-  "title" : "MiniApp",
+  "title" : "MiniAppAddressing",
   "type" : "topic",
-  "url" : "\/documentation\/miniapp"
+  "url" : "\/documentation\/miniappaddressing"
 }
 }
 }
