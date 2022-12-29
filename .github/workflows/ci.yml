@@ -93,24 +93,24 @@ jobs:
             --output-path docs
 
           swift package --allow-writing-to-directory docs \
-            generate-documentation --target MiniPackaging \
+            generate-documentation --target MiniAppPackaging \
             --disable-indexing \
             --transform-for-static-hosting \
-            --hosting-base-path MiniPackaging \
+            --hosting-base-path MiniAppPackaging \
             --output-path docs
 
           swift package --allow-writing-to-directory docs \
-            generate-documentation --target MiniLifecycle \
+            generate-documentation --target MiniAppLifecycle \
             --disable-indexing \
             --transform-for-static-hosting \
-            --hosting-base-path MiniLifecycle \
+            --hosting-base-path MiniAppLifecycle \
             --output-path docs
 
           swift package --allow-writing-to-directory docs \
-            generate-documentation --target MiniAddressing \
+            generate-documentation --target MiniAppAddressing \
             --disable-indexing \
             --transform-for-static-hosting \
-            --hosting-base-path MiniAddressing \
+            --hosting-base-path MiniAppAddressing \
             --output-path docs
 
       - name: Deploy
