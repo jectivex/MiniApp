@@ -11,7 +11,6 @@ let package = Package(
         .library(name: "MiniAppAddressing", targets: ["MiniAppAddressing"]),
     ],
     dependencies: [
-        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
         .target(name: "MiniApp", dependencies: ["MiniAppManifest", "MiniAppPackaging", "MiniAppLifecycle", "MiniAppAddressing"], resources: [.process("Resources")]),
