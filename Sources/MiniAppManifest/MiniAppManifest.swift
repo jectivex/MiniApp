@@ -43,10 +43,10 @@ public struct MiniAppManifest : Hashable, Codable {
     /// The MiniApp manifest's pages member is a list of relative-url string used for specifying the collection of pages that are part of a MiniApp. Each item in the list represents a page identified by its page route.
     ///
     /// A MiniApp page route is the relative path and filename of a MiniApp page. When configuring the page routes, developers MAY omit the extension of the file that defines the main component of the page (e.g., pages/mypage or pages/mypage.html).
-    public var pages: [Page]
+    public var pages: [Page]?
 
     /// The MiniApp manifest's `platform_version` member contains a MiniApp platform version resource ordered map for describing the minimum requirements and intended platform version to run a MiniApp, including `min_code`, `target_code`, and `release_type`.
-    public var platform_version: PlatformVersion
+    public var platform_version: PlatformVersion?
 
     /// The optional MiniApp manifest's `req_permissions` member is a list of MiniApp permission resources ordered map.
     ///
@@ -54,13 +54,32 @@ public struct MiniAppManifest : Hashable, Codable {
     public var req_permissions: [Permission]?
 
     /// The MiniApp manifest's version member contains a MiniApp version resource ordered map to represent the code and name.
-    public var version: Version
+    public var version: Version?
 
     /// The optional MiniApp manifest's widgets member is a list of MiniApp widget resources that are a part of a MiniApp.
     public var widgets: [Widget]?
 
     /// The optional MiniApp manifest's window member contains a MiniApp window resource ordered map to describe the look and feel of a MiniApp frame, including the styles of the status bar, navigation bar, title, background colors, among other visual configuration elements.
     public var window: WindowStyle?
+
+
+    public init(dir: TextDirection? = nil, icons: [ImageResource]? = nil, lang: String? = nil, name: String, short_name: String? = nil, description: String? = nil, app_id: String, color_scheme: String? = nil, device_type: [SupportedDevice]? = nil, pages: [Page]? = nil, platform_version: PlatformVersion? = nil, req_permissions: [Permission]? = nil, version: Version? = nil, widgets: [Widget]? = nil, window: WindowStyle? = nil) {
+        self.dir = dir
+        self.icons = icons
+        self.lang = lang
+        self.name = name
+        self.short_name = short_name
+        self.description = description
+        self.app_id = app_id
+        self.color_scheme = color_scheme
+        self.device_type = device_type
+        self.pages = pages
+        self.platform_version = platform_version
+        self.req_permissions = req_permissions
+        self.version = version
+        self.widgets = widgets
+        self.window = window
+    }
 
     /// The optional MiniApp manifest's `device_type` member is a list of strings that indicates the type of devices on which the MiniApp is intended to run. The values of this member inform user agents if the MiniApp has been designed to properly run on specific platforms like smartphones, smart TVs, car head units, wearables, and other devices.
     public struct SupportedDevice : RawRepresentable, Hashable, Codable {
@@ -105,6 +124,11 @@ public struct MiniAppManifest : Hashable, Codable {
 
         /// The MiniApp version resource's `name` member is a string mainly used for describing information on the version of a MiniApp, playing an essential role in version control, MiniApp application, and platform compatibility. It is usually considered as the version that is shown publicly and displayed to the user.
         public var name: String
+
+        public init(code: UInt, name: String) {
+            self.code = code
+            self.name = name
+        }
     }
 
     /// A MiniApp platform version resource is an ordered map that indicates the minimum and target platform versions to be used by the MiniApp.
@@ -119,6 +143,12 @@ public struct MiniAppManifest : Hashable, Codable {
 
         /// The MiniApp platform version resource's `target_code` member is a non-negative integer number that indicates the target supported version of the MiniApp user agent's platform to ensure the regular operation of a MiniApp.
         public var target_code: UInt
+
+        public init(min_code: UInt, release_type: String, target_code: UInt) {
+            self.min_code = min_code
+            self.release_type = release_type
+            self.target_code = target_code
+        }
     }
 
     /// A MiniApp widget resource is an ordered map that defines and configures a widget that is part of a MiniApp.
@@ -131,6 +161,12 @@ public struct MiniAppManifest : Hashable, Codable {
 
         /// The optional MiniApp widget resource's `min_code` member is a number that indicates the minimum platform version supported for a MiniApp widget.
         public var min_code: String?
+
+        public init(name: String, path: String, min_code: String? = nil) {
+            self.name = name
+            self.path = path
+            self.min_code = min_code
+        }
     }
 
     /// A MiniApp permission resource is an ordered map that describes a request for using a concrete system feature (e.g., access to device's location, user contacts, sensors, and camera) required for the proper execution of a MiniApp.
@@ -140,6 +176,11 @@ public struct MiniAppManifest : Hashable, Codable {
 
         /// The optional MiniApp permission resource's reason member is a string that indicates the reason given to request the feature specified in the [MiniApp permission resource/name=] attribute.
         public let reason: String?
+
+        public init(name: String, reason: String?) {
+            self.name = name
+            self.reason = reason
+        }
     }
 
     /// A MiniApp window resource is an ordered map that defines and configures the window that contains a MiniApp.
@@ -199,6 +240,20 @@ public struct MiniAppManifest : Hashable, Codable {
             case custom
         }
 
+        public init(auto_design_width: Bool? = nil, background_color: AppColor? = nil, background_text_style: String? = nil, design_width: Double? = nil, enable_pull_down_refresh: Bool? = nil, fullscreen: Bool? = nil, navigation_bar_background_color: AppColor? = nil, navigation_bar_text_style: String? = nil, navigation_bar_title_text: String? = nil, navigation_style: NavigationStyle? = nil, on_reach_bottom_distance: Double? = nil, orientation: Orientation? = nil) {
+            self.auto_design_width = auto_design_width
+            self.background_color = background_color
+            self.background_text_style = background_text_style
+            self.design_width = design_width
+            self.enable_pull_down_refresh = enable_pull_down_refresh
+            self.fullscreen = fullscreen
+            self.navigation_bar_background_color = navigation_bar_background_color
+            self.navigation_bar_text_style = navigation_bar_text_style
+            self.navigation_bar_title_text = navigation_bar_title_text
+            self.navigation_style = navigation_style
+            self.on_reach_bottom_distance = on_reach_bottom_distance
+            self.orientation = orientation
+        }
     }
 }
 
