@@ -1,7 +1,20 @@
 import XCTest
 import MiniApp
 
+
+protocol MiniAppPackageProvider {
+    
+}
+
+struct MiniAppPackageStub {
+
+}
+
 final class MiniAppTests: XCTestCase {
+    func testPackaging() throws {
+        let pkg = MiniAppPackageStub()
+    }
+
     /// Tests the various metadata from the submodule linked to https://github.com/w3c/miniapp-tests
     func testExamples() throws {
         let base = try XCTUnwrap(Bundle.module.url(forResource: "miniapp-tests", withExtension: nil))
@@ -53,14 +66,14 @@ final class MiniAppTests: XCTestCase {
         let manifest = try MiniAppManifest.decode(from: Data(contentsOf: src.file(named: "manifest.json")))
         XCTAssertNotEqual("", manifest.name)
         XCTAssertEqual("org.example.miniapp", manifest.id)
-        XCTAssertEqual(1, manifest.pages.count)
+        XCTAssertEqual(1, manifest.pages?.count)
         XCTAssertEqual(1, manifest.icons?.count)
         //XCTAssertNotNil(manifest.short_name)
 
         // app.js contains the basic service logic of the MiniApp and includes the essential configuration and control of the MiniApp lifecycle, including the management of events for launching, showing, and hiding the MiniApp.
         let appJS = try src.file(named: "app.js")
         let _ = try Data(contentsOf: appJS)
-}
+    }
 }
 
 extension URL {
