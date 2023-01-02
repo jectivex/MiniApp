@@ -58,4 +58,11 @@ public struct ImageResource : Hashable, Codable {
 
     /// A string representing the accessible name of the image.
     public var label: String?
+
+    public init(src: String? = nil, sizes: String? = nil, type: String? = nil, label: String? = nil) {
+        self.src = src
+        self.sizes = sizes
+        self.type = type
+        self.label = label
+    }
 }
